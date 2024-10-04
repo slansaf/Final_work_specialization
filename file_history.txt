@@ -1,0 +1,69 @@
+    1  clear
+
+    2  cat > Pets
+
+    3  cat Pets
+
+    4  cat >> Pets
+
+    5  cat Pets
+
+    6  cat > PackAnimals
+
+    7  cat PackAnimals 
+
+    8  cat Pets PackAnimals > CombinedAnimals.txt
+
+    9  mv CombinedAnimals.txt HumanFriends.txt
+
+   10  cat HumanFriends.txt 
+
+   11  ls
+
+   12  mkdir Animals
+
+   13  mv HumanFriends.txt Animals/
+
+   14  ls
+
+   15  cd Animals/
+
+   16  ls
+
+   17  cd ..
+
+   18  sudo apt update && sudo apt install mysql-server
+
+   19  sudo add-apt-repository ppa:ondrej/mysql-5.7
+
+   20  sudo apt update
+
+   21  sudo apt install mysql-client
+
+   22  sudo apt install xz-utils
+
+   23  dpkg -l | grep xz-utils
+
+   24  dpkg -L ufw
+
+   25  sudo dpkg -r xz-utils
+
+   26  dpkg -l | grep xz-utils
+
+   27  sudo wget http://ftp.de.debian.org/debian/pool/main/g/geany/geany_1.33-1_amd64.deb
+
+   28  sudo dpkg -i geany_1.33-1_amd64.deb
+
+   29  ls
+
+   30  rm geany_1.33-1_amd64.deb
+
+   31  ls
+
+   32  dpkg -l | grep geany
+
+   33  sudo dpkg -r geany
+
+   34  dpkg -l | grep geany
+
+   35  history > file_with_history.txt
