@@ -4,20 +4,20 @@ USE HumanFriends;
 
 DROP TABLE IF EXISTS Pets;
 CREATE TABLE Pets (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(255) NOT NULL,
-    Type VARCHAR(255) NOT NULL,
-    BirthDate DATE NOT NULL,
-    Commands TEXT
+   ID INT AUTO_INCREMENT PRIMARY KEY,
+   Name VARCHAR(255) NOT NULL,
+   Type VARCHAR(255) NOT NULL,
+   BirthDate DATE NOT NULL,
+   Commands TEXT
 );
 
 DROP TABLE IF EXISTS PackAnimals;
 CREATE TABLE PackAnimals (
-    ID INT AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(255) NOT NULL,
-    Type VARCHAR(255) NOT NULL,
-    BirthDate DATE NOT NULL,
-    Commands TEXT
+   ID INT AUTO_INCREMENT PRIMARY KEY,
+   Name VARCHAR(255) NOT NULL,
+   Type VARCHAR(255) NOT NULL,
+   BirthDate DATE NOT NULL,
+   Commands TEXT
 );
 
 INSERT INTO Pets (Name, Type, BirthDate, Commands) VALUES
@@ -44,4 +44,42 @@ INSERT INTO PackAnimals (Name, Type, BirthDate, Commands) VALUES
 
 SELECT * FROM PackAnimals;
 
-DELETE FROM PackAnimals WHERE Type = 'Camel';
+SET SQL_SAFE_UPDATES = 0;
+DELETE FROM PackAnimals WHERE Type='Camel';
+SELECT * FROM PackAnimals;
+
+DROP TABLE IF EXISTS HorseAndDonkey;
+CREATE TABLE HorseAndDonkey AS
+SELECT *
+FROM PackAnimals
+WHERE Type IN ('Horse', 'Donkey');
+SELECT * FROM HorseAndDonkey;
+
+DROP TABLE IF EXISTS YoungAnimals;
+CREATE TABLE YoungAnimals AS
+SELECT *
+FROM Pets
+WHERE TIMESTAMPDIFF(MONTH, BirthDate, CURDATE()) BETWEEN 1 AND 36;
+
+SELECT * FROM YoungAnimals;
+
+CREATE VIEW AllAnimals AS
+SELECT
+   'Pets',
+   Name,
+   Type,
+   BirthDate,
+   Commands
+   ID,
+FROM Pets
+UNION ALL
+SELECT
+   'PackAnimals',
+   ID,
+   Name,
+   Type,
+   BirthDate,
+   Commands
+FROM PackAnimals;
+
+SELECT * FROM AllAnimals;
