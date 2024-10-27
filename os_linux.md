@@ -78,7 +78,7 @@ root@Ubuntu22:/home/ruslan# ls
 ```
 
 | Desktop| folder_2 | HumanFriends.txt |
-|-|----|----|
+|----|----|----|
 |Public| text.txt| docker-compose.yml |
 |gb| Music | snap |      
 |Videos| Documents |  home_work_3 |     
